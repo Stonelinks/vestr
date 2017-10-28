@@ -42,10 +42,14 @@ export default class AppContainer extends React.Component {
     try {
       await cacheAssetsAsync({
         images: [
-          require("./assets/images/logo-transparent.png"),
-          require("./assets/images/home-bg.png")
+          require("./assets/images/logo.png"),
+          require("./assets/images/logo-with-text.png")
         ],
-        fonts: [{ billabong: require("./assets/fonts/Billabong-Regular.ttf") }]
+        fonts: [
+          {
+            lato: require("./assets/fonts/Lato-Regular.ttf")
+          }
+        ]
       });
     } catch (e) {
       console.warn(

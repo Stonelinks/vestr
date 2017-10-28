@@ -1,7 +1,7 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 import Colors from "../constants/Colors";
-import BillabongHeader from "../components/BillabongHeader";
+import LatoHeader from "../components/LatoHeader";
 import PhotoList from "../components/PhotoList";
 
 const PhotoGalleryScreen = () => (
@@ -13,7 +13,7 @@ const PhotoGalleryScreen = () => (
 PhotoGalleryScreen.route = {
   navigationBar: {
     visible: true,
-    renderTitle: () => <BillabongHeader headerText={"Rmotrgram"} />,
+    renderTitle: () => <LatoHeader headerText={"Rmotrgram"} />,
     backgroundColor: Colors.rmotrB,
     tintColor: Colors.rmotrC
   }

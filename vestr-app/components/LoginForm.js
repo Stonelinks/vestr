@@ -1,5 +1,6 @@
 import React, { PropTypes } from "react";
 import {
+  Image,
   View,
   Text,
   TextInput,
@@ -10,7 +11,6 @@ import { connect } from "react-redux";
 import { LinearGradient } from "expo";
 import Colors from "../constants/Colors";
 import Layout from "../constants/Layout";
-import BillabongText from "./BillabongText";
 import { authActions } from "../state/actions";
 
 class LoginForm extends React.Component {
@@ -22,46 +22,16 @@ class LoginForm extends React.Component {
       >
         <View>
           <View style={styles.titleContainer}>
-            <BillabongText style={styles.title}>Vestr</BillabongText>
-          </View>
-
-          <View style={styles.inputsContainer}>
-            <TextInput
-              style={styles.textInput}
-              placeholder="Email"
-              placeholderTextColor="#DDD"
-              onChangeText={() => {}}
-              value={""}
-              autoCorrect={false}
-              underlineColorAndroid={"transparent"}
-            />
-
-            <TextInput
-              style={styles.textInput}
-              placeholder="Password"
-              placeholderTextColor="#DDD"
-              onChangeText={() => {}}
-              value={""}
-              secureTextEntry
-              autoCorrect={false}
-              underlineColorAndroid={"transparent"}
+            <Image
+              source={require("../assets/images/logo-with-text.png")}
+              resizeMode="contain"
+              style={{ height: 200 }}
             />
           </View>
+
+          <View style={styles.inputsContainer} />
 
           <View style={styles.mainButtonsContainer}>
-            <TouchableOpacity>
-              <LinearGradient
-                colors={[Colors.success, Colors.success700]}
-                style={styles.mainButton}
-              >
-                <Text style={styles.mainButtonText}>Log In</Text>
-              </LinearGradient>
-            </TouchableOpacity>
-
-            <View style={styles.separatorContainer}>
-              <Text style={styles.separator}>or</Text>
-            </View>
-
             <TouchableOpacity onPress={this.props.loginFacebook}>
               <LinearGradient
                 colors={[Colors.primary, Colors.primary700]}
@@ -77,26 +47,6 @@ class LoginForm extends React.Component {
                 style={styles.mainButton}
               >
                 <Text style={styles.mainButtonText}>Log In with Google</Text>
-              </LinearGradient>
-            </TouchableOpacity>
-          </View>
-
-          <View style={styles.footerButtonsContainer}>
-            <TouchableOpacity style={styles.footerButtonTouchable}>
-              <LinearGradient
-                colors={[Colors.rmotrB100, Colors.rmotrB300]}
-                style={styles.footerButton}
-              >
-                <Text style={styles.footerButtonText}>Forgot Password</Text>
-              </LinearGradient>
-            </TouchableOpacity>
-
-            <TouchableOpacity style={styles.footerButtonTouchable}>
-              <LinearGradient
-                colors={[Colors.rmotrB100, Colors.rmotrB300]}
-                style={styles.footerButton}
-              >
-                <Text style={styles.footerButtonText}>Register</Text>
               </LinearGradient>
             </TouchableOpacity>
           </View>
