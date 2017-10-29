@@ -14,14 +14,14 @@ class PhotoHeader extends React.Component {
     this.goToMap = this.goToMap.bind(this);
   }
 
-  openShareOptions() {
-    return Share.share({
-      url: "https://rmotr.com",
-      title: "Learn to code in a remote classroom",
-      message: "Real teacher, real classmates, real assignments, but remote.",
-      dialogTitle: "Learn to code in a remote classroom"
-    });
-  }
+  // openShareOptions() {
+  //   return Share.share({
+  //     url: "https://rmotr.com",
+  //     title: "Learn to code in a remote classroom",
+  //     message: "Real teacher, real classmates, real assignments, but remote.",
+  //     dialogTitle: "Learn to code in a remote classroom"
+  //   });
+  // }
 
   goToMap() {
     const params = {
@@ -59,9 +59,9 @@ class PhotoHeader extends React.Component {
           </View>
         </View>
 
-        <TouchableOpacity onPress={this.openShareOptions}>
-          <Ionicons style={styles.shareIcon} name="md-share" />
-        </TouchableOpacity>
+        {/*<TouchableOpacity onPress={this.openShareOptions}>*/}
+          {/*<Ionicons style={styles.shareIcon} name="md-share" />*/}
+        {/*</TouchableOpacity>*/}
       </View>
     );
   }
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
   },
 
   headerText: {
-    color: Colors.rmotrB,
+    color: Colors.brandB,
     fontSize: 13,
     fontWeight: "700"
   },
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
   },
 
   shareIcon: {
-    color: Colors.rmotrB100,
+    color: Colors.brandB100,
     fontSize: 18,
     padding: 10
   }

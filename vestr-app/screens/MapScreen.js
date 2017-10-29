@@ -21,8 +21,8 @@ MapScreen.route = {
   navigationBar: {
     visible: true,
     renderTitle: params => <Header headerText={params.params.locationName} />,
-    backgroundColor: Colors.rmotrB,
-    tintColor: Colors.rmotrC
+    backgroundColor: Colors.brandB,
+    tintColor: Colors.brandC
   },
   styles: NavigationStyles.FloatHorizontal
 };

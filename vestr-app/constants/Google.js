@@ -1,10 +1,10 @@
 const googleConfig = {
   iosClientId:
-    "527537311057-mv7daphvl99b8774a8eqkaebrtb2d1n0.apps.googleusercontent.com",
+    "137627682663-9jp3m7o374fontme7hb99de7ep7ftl6m.apps.googleusercontent.com",
   androidClientId:
-    "527537311057-4dd46li67cv5rcmi0eph1sjoo5d7e3a7.apps.googleusercontent.com",
+    "137627682663-3qiaeqmcb56vt5f6utse4iunnuctdv5i.apps.googleusercontent.com",
   maps: {
-    apiKey: "AIzaSyAm_T8kZSRaQ2KGLeXBdSuZ01zqsmROq2c",
+    apiKey: "AIzaSyDajK5BDxSh1BHigFUgHfCuZTOk2zEWPYs",
     url: "https://maps.googleapis.com/maps/api/geocode/json"
   },
   getInfoUrl: (lat, lng) => {

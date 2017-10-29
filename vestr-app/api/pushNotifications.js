@@ -36,7 +36,7 @@ const photoUploadedPushNotification = () => {
 
 const sendPushNotification = async type => {
   // Get the token that uniquely identifies this device
-  const token = await Notifications.getExponentPushTokenAsync();
+  const token = await Notifications.getExpoPushTokenAsync();
 
   // POST the token to our backend so we can use it to send pushes from there
   return fetch(`${PUSH_ENDPOINT}/${type}/${token}`, {

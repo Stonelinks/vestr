@@ -191,7 +191,7 @@ export const logout = () => dispatch => {
     );
   };
 
-  Alert.alert("Log out on Rmotrgram?", null, [
+  Alert.alert("Log out of Vestr?", null, [
     { text: "Cancel", onPress: () => {} },
     { text: "Log out", onPress: doLogout }
   ]);

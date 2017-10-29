@@ -36,7 +36,7 @@ class CameraOpenRoll extends React.Component {
       <View style={styles.viewStyle}>
         <TouchableOpacity onPress={this.showRoll}>
           <LinearGradient
-            colors={[Colors.rmotrB100, Colors.rmotrB300, Colors.rmotrB]}
+            colors={[Colors.brandB100, Colors.brandB300, Colors.brandB]}
             style={styles.linearGradient}
           >
             <Foundation style={styles.icon} name="photo" />
@@ -53,7 +53,7 @@ CameraOpenRoll.propTypes = {
 
 const styles = StyleSheet.create({
   viewStyle: {
-    backgroundColor: Colors.rmotrB
+    backgroundColor: Colors.brandB
   },
 
   linearGradient: {

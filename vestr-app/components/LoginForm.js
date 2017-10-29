@@ -17,7 +17,7 @@ class LoginForm extends React.Component {
   render() {
     return (
       <LinearGradient
-        colors={[Colors.rmotrB100, Colors.rmotrB300]}
+        colors={[Colors.brandB100, Colors.brandB300]}
         style={styles.container}
       >
         <View>
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
 
   textInput: {
     width: Layout.window.width - 40,
-    backgroundColor: Colors.rmotrB300,
+    backgroundColor: Colors.brandB300,
     height: 40,
     fontSize: 14,
     borderRadius: 3,

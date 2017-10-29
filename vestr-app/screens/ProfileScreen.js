@@ -126,8 +126,8 @@ ProfileScreen.route = {
   navigationBar: {
     visible: true,
     renderTitle: () => <Header headerText={"Profile"} />,
-    backgroundColor: Colors.rmotrB,
-    tintColor: Colors.rmotrC
+    backgroundColor: Colors.brandB,
+    tintColor: Colors.brandC
   }
 };
 

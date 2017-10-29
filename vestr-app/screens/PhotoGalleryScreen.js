@@ -13,9 +13,9 @@ const PhotoGalleryScreen = () => (
 PhotoGalleryScreen.route = {
   navigationBar: {
     visible: true,
-    renderTitle: () => <LatoHeader headerText={"Rmotrgram"} />,
-    backgroundColor: Colors.rmotrB,
-    tintColor: Colors.rmotrC
+    renderTitle: () => <LatoHeader headerText={"Vestr"} />,
+    backgroundColor: Colors.brandB,
+    tintColor: Colors.brandC
   }
 };
 

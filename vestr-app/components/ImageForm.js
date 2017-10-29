@@ -13,6 +13,13 @@ import Image from "react-native-image-progress";
 import { withNavigation } from "@expo/ex-navigation";
 import Colors from "../constants/Colors";
 import { photoActions } from "../state/actions";
+// import FaceDetector from 'face-detector-polyfill';
+// import Canvas from 'react-native-canvas';
+
+// var faceDetector = new FaceDetector({
+//   maxDetectedFaces: 100,
+//   fastMode: false,
+// });
 
 @withNavigation
 class ImageForm extends React.Component {
@@ -21,7 +28,13 @@ class ImageForm extends React.Component {
 
     this.updateTextCaptionValue = this.updateTextCaptionValue.bind(this);
     this.savingAttempt = this.savingAttempt.bind(this);
-    // it's not necessary to bind savePhoto
+  }
+
+  handleCanvas (canvas) {
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'purple';
+    ctx.fillRect(0, 0, 100, 100);
+
   }
 
   updateTextCaptionValue(caption) {
@@ -30,8 +43,8 @@ class ImageForm extends React.Component {
 
   savingAttempt() {
     Alert.alert("Really want to save that picture?", null, [
+      { text: "Cancel", onPress: () => null, style: "cancel" },
       { text: "Save", onPress: () => this.savePhoto() },
-      { text: "Cancel", onPress: () => null, style: "cancel" }
     ]);
   }
 
@@ -85,8 +98,14 @@ class ImageForm extends React.Component {
             {componentToRender}
           </View>
 
+
+
           <Image style={styles.image} source={{ uri: this.props.photo.uri }} />
+
+          <Canvas ref={this.handleCanvas}/>
         </View>
+
+
       </View>
     );
   }

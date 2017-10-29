@@ -18,7 +18,7 @@ class ProfileCard extends React.Component {
     return (
       <ScrollView>
         <LinearGradient
-          colors={[Colors.rmotrB300, Colors.rmotrB100]}
+          colors={[Colors.brandB300, Colors.brandB100]}
           style={styles.viewStyle}
         >
           <Image

@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   },
 
   commentUser: {
-    color: Colors.rmotrB,
+    color: Colors.brandB,
     fontSize: 13,
     fontWeight: "700"
   },

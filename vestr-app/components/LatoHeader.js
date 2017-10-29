@@ -15,14 +15,14 @@ Header.propTypes = {
 
 const styles = StyleSheet.create({
   viewStyle: {
-    backgroundColor: Colors.rmotrB,
+    backgroundColor: Colors.brandB,
     height: 45,
     justifyContent: "center",
     alignItems: "center"
   },
 
   textStyle: {
-    color: Colors.rmotrC,
+    color: Colors.brandA,
     fontSize: 28,
     fontWeight: "900"
   }

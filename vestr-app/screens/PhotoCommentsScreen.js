@@ -15,8 +15,8 @@ PhotoCommentsScreen.route = {
   navigationBar: {
     visible: true,
     renderTitle: () => <Header headerText={"Comments"} />,
-    backgroundColor: Colors.rmotrB,
-    tintColor: Colors.rmotrC
+    backgroundColor: Colors.brandB,
+    tintColor: Colors.brandC
   },
   styles: NavigationStyles.FloatHorizontal
 };

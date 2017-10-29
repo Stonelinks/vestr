@@ -17,7 +17,7 @@ class CameraScreen extends React.Component {
   }
 
   setSelectedOption(selectedOption) {
-    Vibration.vibrate();
+    // Vibration.vibrate();
 
     this.props.setPhotoSource(selectedOption);
   }
@@ -29,10 +29,10 @@ class CameraScreen extends React.Component {
     let imageForm;
 
     switch (this.props.photo.source) {
-      case "Camera roll":
+      case options[0]:
         cameraComponent = <CameraOpenRoll />;
         break;
-      case "Take a new photo":
+      case options[1]:
         cameraComponent = <CameraTakePhoto />;
         break;
       default:
@@ -53,8 +53,8 @@ class CameraScreen extends React.Component {
             onSelection={this.setSelectedOption}
             selectedOption={this.props.photo.source}
             tint={"#FFF"}
-            selectedTint={Colors.rmotrB}
-            backTint={Colors.rmotrB}
+            selectedTint={Colors.brandB}
+            backTint={Colors.brandB}
           />
         </View>
 
@@ -70,8 +70,8 @@ CameraScreen.route = {
   navigationBar: {
     visible: true,
     renderTitle: () => <Header headerText={"Camera"} />,
-    backgroundColor: Colors.rmotrB,
-    tintColor: Colors.rmotrC
+    backgroundColor: Colors.brandB,
+    tintColor: Colors.brandC
   }
 };
 
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
   },
 
   segmentedControls: {
-    backgroundColor: Colors.rmotrB,
+    backgroundColor: Colors.brandB,
     padding: 7,
     paddingTop: 1
   }

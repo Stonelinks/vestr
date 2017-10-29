@@ -34,7 +34,7 @@ class RootNavigation extends React.Component {
       <TabNavigation
         id="tab-navigation"
         navigatorUID="tab-navigation"
-        tabBarColor={Colors.rmotrB}
+        tabBarColor={Colors.brandB}
         tabBarHeight={42}
         initialTab="photoGallery"
       >

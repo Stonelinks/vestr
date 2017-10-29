@@ -46,7 +46,7 @@ class PhotoFooter extends React.Component {
         </View>
 
         <View style={styles.footerMiddle}>
-          <Ionicons name="ios-heart" size={12} color={Colors.rmotrB} />
+          <Ionicons name="ios-heart" size={12} color={Colors.brandB} />
 
           <Text style={styles.likesText}>
             {this.props.isLiked
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
   },
 
   likesText: {
-    color: Colors.rmotrB,
+    color: Colors.brandB,
     fontSize: 13,
     fontWeight: "700",
     marginLeft: 5
@@ -130,13 +130,13 @@ const styles = StyleSheet.create({
   },
 
   footerText: {
-    color: Colors.rmotrB,
+    color: Colors.brandB,
     fontSize: 13,
     fontWeight: "700"
   },
 
   photoCaption: {
-    color: Colors.rmotrB,
+    color: Colors.brandB,
     fontSize: 13,
     fontWeight: "400",
     paddingLeft: 3
