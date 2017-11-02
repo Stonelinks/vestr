@@ -9,32 +9,95 @@ import {
   StyleSheet
 } from "react-native";
 import { connect } from "react-redux";
+import { takeSnapshotAsync } from "expo";
 import Image from "react-native-image-progress";
 import { withNavigation } from "@expo/ex-navigation";
 import Colors from "../constants/Colors";
 import { photoActions } from "../state/actions";
-// import FaceDetector from 'face-detector-polyfill';
-// import Canvas from 'react-native-canvas';
-
-// var faceDetector = new FaceDetector({
-//   maxDetectedFaces: 100,
-//   fastMode: false,
-// });
-
+import FaceDetector from "../utils/FaceDetector";
+import Canvas, { Image as CanvasImage } from "react-native-canvas";
+import Dimensions from "Dimensions";
+import moment from "moment";
 @withNavigation
 class ImageForm extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      imageData: null
+    };
+
     this.updateTextCaptionValue = this.updateTextCaptionValue.bind(this);
     this.savingAttempt = this.savingAttempt.bind(this);
+    this.handleCanvas = this.handleCanvas.bind(this);
+    this.handlePreviewCanvas = this.handlePreviewCanvas.bind(this);
   }
 
-  handleCanvas (canvas) {
-    const ctx = canvas.getContext('2d');
-    ctx.fillStyle = 'purple';
-    ctx.fillRect(0, 0, 100, 100);
+  handlePreviewCanvas(canvas) {
+    this.previewCanvas = canvas;
+    bye(canvas);
+  }
+  handleCanvas(canvas) {
+    const { photo } = this.props;
 
+    this.faceDetector = new FaceDetector(canvas);
+    const screenWidth = Dimensions.get("window").width;
+    canvas.width = screenWidth;
+    canvas.height = screenWidth;
+    const image = new CanvasImage(canvas);
+
+    image.addEventListener("load", async () => {
+      image.width = screenWidth;
+      image.height = screenWidth;
+
+      const {faces, ctx} = await this.faceDetector.detect(image);
+      console.warn(JSON.stringify(faces, null, 2));
+
+      if (faces.length) {
+        ctx.fillStyle = "purple";
+
+        // ctx.beginPath();
+        // ctx.lineWidth = "10";
+        // ctx.strokeStyle = "#0f0";
+        // for (var i = 0; i < faces.length; i++) {
+        //     ctx.rect(faces[i].x, faces[i].y, faces[i].width, faces[i].height);
+        //   // ctx.fillRect(faces[i].x, faces[i].y, faces[i].width, faces[i].height);
+        // }
+        //
+        // // ctx.fillRect(0, 0, 100, 100);
+        // //
+        // // ctx.fillRect(100, 100, 10, 100);
+        // ctx.stroke();
+
+        // const screenWidth = Dimensions.get("window").width;
+        // canvas.width = screenWidth;
+        // canvas.height = screenWidth;
+
+        // this.previewCanvas.width = screenWidth;
+        // this.previewCanvas.height = screenWidth;
+        // const previewCtx = this.previewCanvas.getContext("2d");
+        //
+        // await previewCtx.drawImage(canvas, 0, 0, screenWidth, screenWidth);
+        // bye(canvas);
+
+        // const imageData = await this.ctx.getImageData(
+        //   0,
+        //   0,
+        //   canvasWidth,
+        //   canvasHeight
+        // );
+
+        // const imageData = await canvas.toDataURL()
+        // const imageData = await  takeSnapshotAsync(this._canvasContainer, {
+        //   result: 'data-uri'
+        // })
+        // this.setState({
+        //   imageData
+        // })
+      }
+    });
+
+    image.src = photo.uri;
   }
 
   updateTextCaptionValue(caption) {
@@ -44,7 +107,7 @@ class ImageForm extends React.Component {
   savingAttempt() {
     Alert.alert("Really want to save that picture?", null, [
       { text: "Cancel", onPress: () => null, style: "cancel" },
-      { text: "Save", onPress: () => this.savePhoto() },
+      { text: "Save", onPress: () => this.savePhoto() }
     ]);
   }
 
@@ -56,13 +119,21 @@ class ImageForm extends React.Component {
 
     this.props.addPhoto(this.props.photo);
 
-    this.goToGallery();
+    // this.goToGallery();
   }
 
   goToGallery() {
     this.props.navigation.performAction(({ tabs }) => {
       tabs("tab-navigation").jumpToTab("photoGallery");
     });
+  }
+
+  renderImagePreview() {
+    const { imageData } = this.state;
+    if (imageData) {
+      console.warn(imageData);
+      return <Image style={styles.image} source={{ uri: imageData }} />;
+    }
   }
 
   render() {
@@ -98,14 +169,13 @@ class ImageForm extends React.Component {
             {componentToRender}
           </View>
 
+          {/*{this.renderImagePreview()}*/}
+          {/*<View ref={(c) => this._canvasContainer = c}>*/}
+          {/*<Canvas ref={this.handlePreviewCanvas} />*/}
+          <Canvas ref={this.handleCanvas} />
 
-
-          <Image style={styles.image} source={{ uri: this.props.photo.uri }} />
-
-          <Canvas ref={this.handleCanvas}/>
+          {/*</View>*/}
         </View>
-
-
       </View>
     );
   }
@@ -176,3 +246,8 @@ const setPhotoCaption = photoActions.setPhotoCaption;
 const addPhoto = photoActions.addPhoto;
 
 export default connect(null, { setPhotoCaption, addPhoto })(ImageForm);
+
+function bye(canvas) {
+  canvas.width = 1;
+  canvas.height = 1;
+}

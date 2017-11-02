@@ -60,7 +60,7 @@ class PhotoHeader extends React.Component {
         </View>
 
         {/*<TouchableOpacity onPress={this.openShareOptions}>*/}
-          {/*<Ionicons style={styles.shareIcon} name="md-share" />*/}
+        {/*<Ionicons style={styles.shareIcon} name="md-share" />*/}
         {/*</TouchableOpacity>*/}
       </View>
     );

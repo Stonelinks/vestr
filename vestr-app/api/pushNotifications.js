@@ -26,7 +26,7 @@ const registerForPushNotifications = async () => {
     return "denied";
   }
 
-  sendPushNotification("welcome");
+  // sendPushNotification("welcome");
   return "granted";
 };
 
